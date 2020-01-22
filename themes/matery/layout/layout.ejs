@@ -34,7 +34,6 @@
             <script async src="<%- theme.libs.js.busuanzi %>"></script>
         <% } %>
 
-        <!-- 洪卫 shw2018 add 2019.08.28 -->
         <script type="text/javascript">
             var OriginTitile = document.title,
                 st;
@@ -47,14 +46,14 @@
         </script>
 
         <script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script>
-        <!-- 鼠标点击烟花爆炸效果  洪卫 shw2018 add 2019.09.09 -->
+        <!-- 鼠标点击烟花爆炸效果 -->
         <% if (theme.fireworks.enable) { %>
             <canvas class="fireworks" style="position: fixed; left: 0; top: 0; z-index: 1; pointer-events: none;"></canvas>
             <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
             <script type="text/javascript" src="/js/fireworks.js"></script>
         <% } %>
 
-        <!-- 背景雪花飘落特效洪卫 shw2018 add 2019.09.10 -->
+        <!-- 背景雪花飘落特效洪卫 -->
         <% if (theme.sakura.enable) { %>
             <script type="text/javascript">
             //只在桌面版网页启用特效
@@ -65,12 +64,12 @@
             </script>
         <% } %>
 
-        <!-- 鼠标点击文字特效 洪卫 shw2018 add 2019.09.10-->
+        <!-- 鼠标点击文字特效-->
         <% if (theme.wenzi.enable) { %>
             <script src="/js/wenzi.js" type="text/javascript"></script>
         <% } %>
 
-        <!-- 背景雪花飘落特效 洪卫 shw2018 add 2019.09.10 -->
+        <!-- 背景雪花飘落特效-->
         <% if (theme.xuehuapiaoluo.enable) { %>
             <script type="text/javascript">
                 var windowWidth = $(window).width();
@@ -80,7 +79,7 @@
             </script>
         <% } %>
 
-        <!-- 在线聊天工具  洪卫 shw2018 add 2019.09.11 -->
+        <!-- 在线聊天工具 -->
         <% if (theme.tidio.enable) { %>
             <script src="//code.tidio.co/<%- theme.tidio.public_key %>.js"></script>
             <!--  在线聊天位置自定义  洪卫 shw2018 add 2019.09.13  -->
@@ -115,7 +114,7 @@
             </script>
         <% } %>
 
-        <!-- 背景 canvas-nest  洪卫 shw 2018  add 2019.09.15-->
+        <!-- 背景 canvas-nest-->
         <% if (theme.canvas_nest.enable) { %>
             <script type="text/javascript">
             var windowWidth = $(window).width();
@@ -125,7 +124,7 @@
             </script>
         <% } %>
 
-        <!-- 背景静止彩带  洪卫 shw 2018  add 2019.09.15-->
+        <!-- 背景静止彩带-->
         <% if (theme.ribbon.enable) { %>
             <script type="text/javascript">
             var windowWidth = $(window).width();
@@ -135,7 +134,7 @@
             </script>
         <% } %>
 
-        <!-- 背景动态彩带 洪卫 shw 2018  add 2019.09.15-->
+        <!-- 背景动态彩带-->
         <% if (theme.ribbon_dynamic.enable) { %>
             <script type="text/javascript">
             var windowWidth = $(window).width();

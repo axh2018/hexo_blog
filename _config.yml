@@ -1,5 +1,4 @@
-# shw2018 洪卫  modify 2019.08.01
-# Hexo Configuration
+## Hexo Configuration
 ## Docs: https://hexo.io/docs/configuration.html
 ## Source: https://github.com/hexojs/hexo/
 
@@ -116,8 +115,7 @@ deploy:
 - type: git
   repository: https://github.com/axh2018/axh2018.github.io
   branch: master
-    # coding: https://git.coding.net/hwsun/hwsun.git
-    # gitee: https://gitee.com/hwsun/hwsun.git
+
 
 
 #- type: baidu_url_submitter
@@ -125,7 +123,7 @@ deploy:
 # baidu submit
 baidu_url_submit:
   count: 80                                      # 提交最新的一个链接
-  host: sunhwee.com     # 在百度站长平台中注册的域名
+  host: axh2018.cn     # 在百度站长平台中注册的域名
   token: XXXXXXXXXXXXXXX    # 请注意这是您的秘钥， 所以请不要把博客源代码发布在公众仓库里!
   path: baidu_urls.txt                # 文本文档的地址， 新链接会保存在此文本文档里
 
@@ -173,7 +171,10 @@ githubEmojis:
 #   headerIds: true
 
 # lazyload configuration  2019.08.14
+# 懒加载,延迟加载也称为惰性加载，即在长网页中延迟加载图像
+# 用户滚动到它们之前，视口外的图像不会加载。这与图像预加载相反
+# 在长网页上使用延迟加载将使网页加载更快。在某些情况下，它还可以帮助减少服务器负载
 lazyload:
   enable: true 
   onlypost: true
-  loadingImg: https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg    # eg ./images/loading.gif
+  loadingImg: https://cdn.jsdelivr.net/
