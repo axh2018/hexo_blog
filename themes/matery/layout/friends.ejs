@@ -5,11 +5,18 @@
         margin-bottom: 30px;
     }
 
+    .friends-container .tag-title {
+        margin-bottom: 10px;
+        color: #3C4858;
+        font-size: 1.75rem;
+        font-weight: 400;
+    }
+
     .frind-ship img {
         border-radius: 50%;
     }
 
-    /* 以下是按钮样式 */
+    /* 一下是按钮样式 */
 
     .frind-ship {
         padding: 10px 20px;
@@ -32,10 +39,11 @@
     }
 
     .frind-ship .title h1 {
-        /* line-height: auto; */
-        line-height: 0.8rem;
-        padding-bottom: 16px;
+        padding-bottom: 5px;
         border-bottom: 2px solid #fff;
+        position: relative;
+        top:-15px;
+        left: 3px;
     }
 
     .friend-button {
@@ -174,54 +182,78 @@
     .frind-card10 {
         background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%);
     }
-
-    /* 洪卫 shw2018 add 2019.08.30 */
-    .friend-introduction {
-        min-height: 3rem;
-    }
-    /* 修复卡片底部按键被裁减问题  洪卫 shw2018 add 2019.09.01 */
+    
     article .card {
-    overflow: visible !important;
-}
-    /* .f-card {
         overflow: visible !important;
-    }  */
-
+    }
 </style>
 
 <main class="content">
     <div class="container friends-container">
-        <article id="friends-link">
-            <% if (site.data && site.data.friends) { %>
-            <% var friends = site.data.friends; %>
-            <div class="row tags-posts friend-all">
-                <% for (var i = 0, len = friends.length; i < len; i++) { %>
-                <% var friend = friends[i]; %>
-                <div class="col s12 m6 l4 friend-div" data-aos="zoom-in-up">
-                    <div class="card frind-card<%- ((i % 10) +1) %>">
-                        <div class="frind-ship">
-                            <div class="title">
-                                <img src="<%- friend.avatar %>" alt="img">
-                                <div>
-                                    <h1 class="friend-name"><%- friend.name %></h1>
-                                    <!-- 洪卫 shw2018 modify 2019.08.30 -->
-                                    <p class="friend-introduction"><%- friend.introduction %></p>
-                                    <!-- <p><%- friend.introduction %></p> -->
+        <div class="card">
+            <div class="card-content">
+                <div class="tag-title center-align">
+                    <i class="fas fa-address-book"></i>&nbsp;&nbsp;<%= __('friends') %>
+                </div>
+                <article id="friends-link">
+                    <% if (site.data && site.data.friends) { %>
+                    <% var friends = site.data.friends; %>
+                    <div class="row tags-posts friend-all">
+                        <% for (var i = 0, len = friends.length; i < len; i++) { %>
+                        <% var friend = friends[i]; %>
+                        <div class="col s12 m6 l4 friend-div" data-aos="zoom-in-up">
+                            <div class="card frind-card<%- ((i % 10) +1) %>">
+                                <div class="frind-ship">
+                                    <div class="title">
+                                        <img src="<%- friend.avatar %>" alt="img">
+                                        <div>
+                                            <h1 class="friend-name"><%- friend.name %></h1>
+                                            <p style="position: relative;top: -35px;"><%- friend.introduction %></p>
+                                        </div>
+                                    </div>
+                                    <div class="friend-button">
+                                        <a href="<%- friend.url %>" target="_blank"
+                                            class="button button-glow button-rounded button-caution">
+                                            <%- friend.title %>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="friend-button">
-                                <a href="<%- friend.url %>" target="_blank"
-                                    class="button button-glow button-rounded button-caution">
-                                    <%- friend.title %>
-                                </a>
-                            </div>
                         </div>
+                        <% } %>
                     </div>
-                </div>
-                <% } %>
+                    <% } %>
+                </article>
             </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <%- page.content %>
+            </div>
+        </div>
+        <div class="card">
+
+            <% if (theme.gitalk && theme.gitalk.enable) { %>
+            <%- partial('_partial/gitalk') %>
             <% } %>
-        </article>
+
+            <% if (theme.gitment.enable) { %>
+            <%- partial('_partial/gitment') %>
+            <% } %>
+
+            <% if (theme.disqus.enable) { %>
+            <%- partial('_partial/disqus') %>
+            <% } %>
+
+            <% if (theme.livere && theme.livere.enable) { %>
+            <%- partial('_partial/livere') %>
+            <% } %>
+
+            <% if (theme.valine && theme.valine.enable) { %>
+            <%- partial('_partial/valine') %>
+            <% } %>
+
+        </div>
     </div>
 </main>
 

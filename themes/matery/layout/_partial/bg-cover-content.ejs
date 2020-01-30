@@ -2,39 +2,42 @@
     <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
         <div class="brand">
             <div class="title center-align">
-                <!-- <% if (config.subtitle && config.subtitle.length > 0) { %>
-                    <%= config.subtitle %>
+                <% if (config.subtitle && config.subtitle.length > 0) { %>
+                <%= config.subtitle %>
                 <% } else { %>
-                    subtitle
-                <% } %> -->
-                <% if (is_archive()) { %>
-                    <%= __('archives') %>
-                <% } else if (is_category()) { %>
-                    <%= __('categories') %>
-                <% } else if (is_tag()) { %>
-                    <%= __('tag') %>
-                <% } else if (page.title && page.title.length > 0) { %>
-                    <%= __(page.title) %>
-                <% } else { %>
-                    <%= config.subtitle%>
+                subtitle
                 <% } %>
             </div>
 
             <div class="description center-align">
-                <% if (config.description && config.description.length > 0) { %>
-                    <!-- <%= config.description %> -->
-                    <%- '<span id="jinrishici-sentence">正在加载今日诗词...</span>' %>
+                <% if (theme.subtitle.enable) { %>
+                <span id="subtitle"></span>
+                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+                <script>
+                    var typed = new Typed("#subtitle", {
+                        strings: ['<%= theme.subtitle.sub1 %>','<%= theme.subtitle.sub2 %>'],
+                        startDelay: <%= theme.subtitle.startDelay %>,
+                        typeSpeed: <%= theme.subtitle.typeSpeed %>,
+                        loop: <%= theme.subtitle.loop %>,
+                        backSpeed: <%= theme.subtitle.backSpeed %>,
+                        showCursor: <%= theme.subtitle.showCursor %>
+                    });
+                </script>
                 <% } else { %>
-                    This is your root _config.yml 'description' value.
+                <%= config.description %>
                 <% } %>
             </div>
-            
-            
         </div>
     </div>
 </div>
-<script>
-// 每天切换 banner 图.  Switch banner image every hour.
-$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getHours() + '.jpg)');
-</script>
 
+<% if (theme.banner.enable) { %>
+<script>
+    // 每天切换 banner 图.  Switch banner image every day.
+    $('.bg-cover').css('background-image', 'url(<%- theme.jsDelivr.url %>/medias/banner/' + new Date().getDay() + '.jpg)');
+</script>
+<% } else { %>
+<script>
+    $('.bg-cover').css('background-image', 'url(<%- theme.jsDelivr.url %>/medias/banner/0.jpg)');
+</script>
+<% } %>

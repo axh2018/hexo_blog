@@ -68,14 +68,14 @@
                         <a href="<%- url_for(post.path) %>">
                             <div class="card-image">
                                 <% if (post.img) { %>
-                                <img src="<%= post.img %>" class="responsive-img" alt="<%- post.title %>">
+                                <img src="<%- theme.jsDelivr.url %><%= post.img %>" class="responsive-img" alt="<%- post.title %>">
                                 <% } else { %>
                                 <%
                                     var len = featureImages.length;
                                     var num = Math.abs(hashCode(post.title) % len);
                                     featureimg = featureImages[num];
                                 %>
-                                <img src="<%= featureimg %>" class="responsive-img" alt="<%- post.title %>">
+                                <img src="<%- theme.jsDelivr.url %><%= featureimg %>" class="responsive-img" alt="<%- post.title %>">
                                 <% } %>
                                 <span class="card-title"><%- post.title %></span>
                             </div>
@@ -83,24 +83,29 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 <% if (post.summary && post.summary.length > 0) { %>
-                                <%- post.summary %>
+                                    <%- post.summary %>
                                 <% } else { %>
-                                <%- strip_html(post.content).substring(0, 120) %>
+                                    <%- strip_html(post.content).substring(0, 120) %>
                                 <% } %>
                             </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <i
-                                        class="fa fa-clock-o fa-fw icon-date"></i><%= date(post.date, config.date_format) %>
+                                    <i class="far fa-clock fa-fw icon-date"></i><%= date(post.date, config.date_format) %>
                                 </span>
                                 <span class="publish-author">
                                     <% if (post.categories && post.categories.length > 0) { %>
-                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                    <i class="fas fa-bookmark fa-fw icon-category"></i>
                                     <% post.categories.forEach(category => { %>
-                                    <a href="<%- url_for(category.path) %>" class="post-category" target="_blank">
-                                        <%- category.name %>
+                                    <a href="<%- url_for(category.path) %>" class="post-category">
+                                    <%- category.name %>
                                     </a>
                                     <% }); %>
+                                    <% } else if (post.author && post.author.length > 0) { %>
+                                    <i class="fas fa-user fa-fw"></i>
+                                    <%- post.author %>
+                                    <% } else { %>
+                                    <i class="fas fa-user fa-fw"></i>
+                                    <%- config.author %>
                                     <% } %>
                                 </span>
                             </div>

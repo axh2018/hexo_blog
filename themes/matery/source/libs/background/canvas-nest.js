@@ -65,7 +65,7 @@
             max: 20000
         };
     u.id = c;
-    u.style.cssText = "position:fixed;top:0;left:0;pointer-events: none;z-index:" + s.z + ";opacity:" + s.o;
+    u.style.cssText = "position:fixed;top:0;left:0;z-index:" + s.z + ";opacity:" + s.o;
     j("body")[0].appendChild(u);
     k(), window.onresize = k;
     window.onmousemove = function (i) {

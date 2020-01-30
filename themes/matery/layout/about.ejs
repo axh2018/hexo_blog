@@ -19,8 +19,8 @@
                     <div class="col s12 m12 l4">
                         <div class="profile center-align">
                             <div class="avatar">
-                                <img src="<%- theme.profile.avatar %>" alt="<%- config.author %>"
-                                    class="circle responsive-img avatar-img">
+                                <img src="<%- theme.jsDelivr.url %><%- theme.profile.avatar %>" alt="<%- config.author %>"
+                                     class="circle responsive-img avatar-img">
                             </div>
                             <div class="author">
                                 <div class="post-statis hide-on-large-only" data-aos="zoom-in-right">
@@ -41,9 +41,7 @@
                     </div>
                 </div>
 
-                <div class="introduction center-align" data-aos="fade-up">
-                    <%= theme.profile.introduction %>
-                </div>
+                <div class="introduction center-align" data-aos="fade-up"><%= theme.profile.introduction %></div>
 
                 <%- partial('_widget/post-charts') %>
 
@@ -54,22 +52,12 @@
                 <% if (theme.mySkills && theme.mySkills.enable) { %>
                 <%- partial('_widget/my-skills') %>
                 <% } %>
-                
+
+                <% if (theme.myGallery && theme.myGallery.enable) { %>
+                <%- partial('_widget/my-gallery') %>
+                <% } %>
+
             </div>
         </div>
-
-        <div class="card">
-            <div class="card-content">
-                <div class="card-content article-card-content">
-                        <div class="title center-align" data-aos="zoom-in-up">
-                            <i class="fa fa-address-book"></i>&nbsp;&nbsp;<%- __('myCV') %>
-                        </div>
-                        <div id="articleContent" data-aos="fade-up">
-                            <%- page.content %>
-                        </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 </main>

@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<%- theme.libs.css.tocbot %>">
+<link rel="stylesheet" href="<%- theme.jsDelivr.url %><%- theme.libs.css.tocbot %>">
 <style>
     #articleContent h1::before,
     #articleContent h2::before,
@@ -23,6 +23,7 @@
     }
 
     .toc-widget {
+        width: 345px;
         padding-left: 20px;
     }
 
@@ -37,6 +38,11 @@
     .toc-widget ol {
         padding: 0;
         list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
     }
 
     #toc-content ol {
@@ -68,8 +74,8 @@
 
     #floating-toc-btn {
         position: fixed;
-        right: 20px;
-        bottom: 76px;
+        right: 30px;
+        bottom: 146px;
         padding-top: 15px;
         margin-bottom: 0;
         z-index: 998;
@@ -91,7 +97,7 @@
     </div>
     <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
         <div class="toc-widget">
-            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;<%- __('toc') %></div>
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;<%- __('toc') %></div>
             <div id="toc-content"></div>
         </div>
     </div>
@@ -101,19 +107,19 @@
 <% if (theme.toc.enable && theme.toc.showToggleBtn) { %>
 <div id="floating-toc-btn" class="hide-on-med-and-down">
     <a class="btn-floating btn-large bg-color">
-        <i class="fa fa-list"></i>
+        <i class="fas fa-list-ul"></i>
     </a>
 </div>
 <% } %>
 
-<script src="<%- theme.libs.js.tocbot %>"></script>
+<script src="<%- theme.jsDelivr.url %><%- theme.libs.js.tocbot %>"></script>
 <script>
     $(function () {
         tocbot.init({
             tocSelector: '#toc-content',
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
-            // headingsOffset: -205,
+            collapseDepth: Number('<%- theme.toc.collapseDepth %>'),
             headingSelector: '<%- theme.toc.heading %>'
         });
 
@@ -170,10 +176,10 @@
         let $mainContent = $('#main-content');
         $('#floating-toc-btn .btn-floating').click(function () {
             if ($tocAside.hasClass(expandedClass)) {
-                $tocAside.removeClass(expandedClass).slideUp(500);
+                $tocAside.removeClass(expandedClass).hide();
                 $mainContent.removeClass('l9');
             } else {
-                $tocAside.addClass(expandedClass).slideDown(500);
+                $tocAside.addClass(expandedClass).show();
                 $mainContent.addClass('l9');
             }
             fixPostCardWidth('artDetail', 'prenext-posts');

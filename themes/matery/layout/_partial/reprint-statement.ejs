@@ -4,149 +4,244 @@ let reprintPolicy = page.reprintPolicy || theme.reprint.default || 'cc_by'
 %>
 <% if (reprintPolicyEnabled) { %>
     <div class="reprint" id="reprint-statement">
-        <p class="reprint-tip">
-            <i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;
-            <span><%= __('reprint') %></span>
-        </p>
         <% if (reprintPolicy === 'cc_by') { %>
-            <div class="center-align">
-                <a rel="license" href="<%= __('cc_by_url') %>">
-                    <img alt=""
-                         style="border-width:0"
-                         src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
-                </a>
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        <%= __('author') %>:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="<%- config.url %>" rel="external nofollow noreferrer"><%- page.author || config.author %></a>
+                </span>
             </div>
-            <br/>
-            <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
-                  property="dct:title" rel="dct:type">
-                    《<%= page.title %>》
-                </span> <%= __('by') %>
-            <a xmlns:cc="http://creativecommons.org/ns#" href="<%- url_for(page.path) %>" property="cc:attributionName"
-               rel="cc:attributionURL">
-                <%- page.author || config.author %>
-            </a> <%= __('under') %>
-            <a rel="license" href="<%= __('cc_by_url') %>">
-                <%= __('cc_by_name') %>
-            </a><%= __('licensed') %>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        <%= __('link') %>:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="<%- config.url %><%- url_for(page.path) %>"><%- config.url %><%- url_for(page.path) %></a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        <%= __('reprint') %>:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <%= __('use') %>
+                    <a href="<%= __('cc_by_url') %>" rel="external nofollow noreferrer" target="_blank"><%= __('cc_by_name') %></a>
+                    <%= __('licensed') %>
+                    <a href="<%- config.url %>" target="_blank"><%- page.author || config.author %></a>
+                    !
+                </span>
+            </div>
         <% } else if (reprintPolicy === 'cc_by_nd') { %>
-            <div class="center-align">
-                <a rel="license" href="<%= __('cc_by_nd_url') %>">
-                    <img alt="<%= __('cc') %>"
-                         style="border-width:0"
-                         src="https://i.creativecommons.org/l/by-nd/4.0/88x31.png"/>
-                </a>
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        <%= __('author') %>:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="<%- config.url %>" rel="external nofollow noreferrer"><%- page.author || config.author %></a>
+                </span>
             </div>
-            <br/>
-            <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
-                  property="dct:title" rel="dct:type">
-                    《<%= page.title %>》
-                </span> <%= __('by') %>
-            <a xmlns:cc="http://creativecommons.org/ns#" href="<%- url_for(page.path) %>" property="cc:attributionName"
-               rel="cc:attributionURL">
-                <%- page.author || config.author %>
-            </a> <%= __('under') %>
-            <a rel="license"
-               href="<%= __('cc_by_nd_url') %>">
-                <%= __('cc_by_nd_name') %>
-            </a><%= __('licensed') %>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        <%= __('link') %>:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="<%- config.url %><%- url_for(page.path) %>"><%- config.url %><%- url_for(page.path) %></a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        <%= __('reprint') %>:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <%= __('use') %>
+                    <a href="<%= __('cc_by_nd_url') %>" rel="external nofollow noreferrer" target="_blank"><%= __('cc_by_nd_name') %></a>
+                    <%= __('licensed') %>
+                    <a href="<%- config.url %>" target="_blank"><%- page.author || config.author %></a>
+                    !
+                </span>
+            </div>
         <% } else if (reprintPolicy === 'cc_by_sa') { %>
-            <div class="center-align">
-                <a rel="license" href="<%= __('cc_by_sa_url') %>">
-                    <img alt="<%= __('cc') %>"
-                         style="border-width:0"
-                         src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"/>
-                </a>
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        <%= __('author') %>:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="<%- config.url %>" rel="external nofollow noreferrer"><%- page.author || config.author %></a>
+                    </span>
             </div>
-            <br/>
-            <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
-                  property="dct:title" rel="dct:type">
-                《<%= page.title %>》
-            </span> <%= __('by') %>
-            <a xmlns:cc="http://creativecommons.org/ns#" href="<%- url_for(page.path) %>" property="cc:attributionName"
-               rel="cc:attributionURL">
-                <%- page.author || config.author %>
-            </a> <%= __('under') %>
-            <a rel="license"
-               href="<%= __('cc_by_sa_url') %>">
-                <%= __('cc_by_sa_name') %>
-            </a><%= __('licensed') %>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        <%= __('link') %>:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="<%- config.url %><%- url_for(page.path) %>"><%- config.url %><%- url_for(page.path) %></a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        <%= __('reprint') %>:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <%= __('use') %>
+                    <a href="<%= __('cc_by_sa_url') %>" rel="external nofollow noreferrer" target="_blank"><%= __('cc_by_sa_name') %></a>
+                    <%= __('licensed') %>
+                    <a href="<%- config.url %>" target="_blank"><%- page.author || config.author %></a>
+                    !
+                </span>
+            </div>
         <% } else if (reprintPolicy === 'cc_by_nc') { %>
-            <div class="center-align">
-                <a rel="license" href="<%= __('cc_by_nc_url') %>">
-                    <img alt="<%= __('cc') %>"
-                         style="border-width:0"
-                         src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png"/></a>
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        <%= __('author') %>:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="<%- config.url %>" rel="external nofollow noreferrer"><%- page.author || config.author %></a>
+                </span>
             </div>
-            <br/>
-            <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
-                  property="dct:title" rel="dct:type">《<%= page.title %>》</span> <%= __('by') %> <a
-                    xmlns:cc="http://creativecommons.org/ns#" href="<%- url_for(page.path) %>"
-                    property="cc:attributionName"
-                    rel="cc:attributionURL"><%- page.author || config.author %></a> <%= __('under') %>
-            <a rel="license" href="<%= __('cc_by_nc_url') %>">
-                <%= __('cc_by_nc_name') %>
-            </a>
-            <%= __('licensed') %>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        <%= __('link') %>:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="<%- config.url %><%- url_for(page.path) %>"><%- config.url %><%- url_for(page.path) %></a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        <%= __('reprint') %>:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <%= __('use') %>
+                    <a href="<%= __('cc_by_nc_url') %>" rel="external nofollow noreferrer" target="_blank"><%= __('cc_by_nc_name') %></a>
+                    <%= __('licensed') %>
+                    <a href="<%- config.url %>" target="_blank"><%- page.author || config.author %></a>
+                    !
+                </span>
+            </div>
         <% } else if (reprintPolicy === 'cc_by_nc_nd') { %>
-            <div class="center-align">
-                <a rel="license" href="<%= __('cc_by_nc_nd_url') %>">
-                    <img alt="<%= __('cc') %>"
-                         style="border-width:0"
-                         src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png"/></a>
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        <%= __('author') %>:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="<%- config.url %>" rel="external nofollow noreferrer"><%- page.author || config.author %></a>
+                </span>
             </div>
-            <br/>
-            <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
-                  property="dct:title" rel="dct:type">《<%= page.title %>》</span> <%= __('by') %> <a
-                    xmlns:cc="http://creativecommons.org/ns#" href="<%- url_for(page.path) %>"
-                    property="cc:attributionName"
-                    rel="cc:attributionURL"><%- page.author || config.author %></a> <%= __('under') %>
-            <a rel="license" href="<%= __('cc_by_nc_nd_url') %>">
-                <%= __('cc_by_nc_nd_name') %>
-            </a><%= __('licensed') %>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        <%= __('link') %>:
+                    </i>
+                    </span>
+                <span class="reprint-info">
+                    <a href="<%- config.url %><%- url_for(page.path) %>"><%- config.url %><%- url_for(page.path) %></a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        <%= __('reprint') %>:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <%= __('use') %>
+                    <a href="<%= __('cc_by_nc_nd_url') %>" rel="external nofollow noreferrer" target="_blank"><%= __('cc_by_nc_nd_name') %></a>
+                    <%= __('licensed') %>
+                    <a href="<%- config.url %>" target="_blank"><%- page.author || config.author %></a>
+                    !
+                </span>
+            </div>
         <% } else if (reprintPolicy === 'cc_by_nc_sa') { %>
-            <div class="center-align">
-                <a rel="license" href="<%= __('cc_by_nc_sa_url') %>">
-                    <img alt="<%= __('cc') %>"
-                         style="border-width:0"
-                         src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        <%= __('author') %>:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="<%- config.url %>" rel="external nofollow noreferrer"><%- page.author || config.author %></a>
+                </span>
             </div>
-            <br/><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
-                       property="dct:title" rel="dct:type">《<%= page.title %>》</span> <%= __('by') %>
-            <a xmlns:cc="http://creativecommons.org/ns#" href="<%- url_for(page.path) %>"
-               property="cc:attributionName" rel="cc:attributionURL"><%- page.author || config.author %>
-            </a> <%= __('under') %>
-            <a rel="license" href="<%= __('cc_by_nc_sa_url') %>">
-                <%= __('cc_by_nc_sa_name') %>
-            </a><%= __('licensed') %>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        <%= __('link') %>:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="<%- config.url %><%- url_for(page.path) %>"><%- config.url %><%- url_for(page.path) %></a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        <%= __('reprint') %>:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <%= __('use') %>
+                    <a href="<%= __('cc_by_nc_sa_url') %>" rel="external nofollow noreferrer" target="_blank"><%= __('cc_by_nc_sa_name') %></a>
+                    <%= __('licensed') %>
+                    <a href="<%- config.url %>" target="_blank"><%- page.author || config.author %></a>
+                    !
+                </span>
+            </div>
         <% } else if (reprintPolicy === 'cc0') { %>
-            <p xmlns:dct="http://purl.org/dc/terms/" xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#">
-            <div class="center-align">
-                <a rel="license"
-                   href="<%= __('cc_0_url') %>">
-                    <img src="http://i.creativecommons.org/p/zero/1.0/88x31.png" style="border-style: none;" alt="CC0"/>
-                </a>
-            </div>
-            <br/>
+            <i class="fas fa-exclamation-circle"></i>
             <%= __('toTheExtentPossibleUnderLaw') %>
-            <a rel="dct:publisher"
-               href="<%- url_for(page.path) %>">
-                <span property="dct:title"><%- page.author || config.author %></span></a>
+            <a href="<%- config.url %>">
+                <%- page.author || config.author %>
+            </a>
             <%= __('hasWaivedAllCopyrightAndRelatedOrNeighboringRightsTo') %>
-            <span property="dct:title">《<%= page.title %>》</span>
+            <a  href="<%- url_for(page.path) %>">
+                《<%= page.title %>》
+            </a>
             <%= __('workPublishedFrom') %>
             <span property="vcard:Country" datatype="dct:ISO3166"
-                  content="<%= __('cc_0_content') %>" about="<%- url_for(page.path) %>">
-                    <%= __('cc_0_country') %>
-                </span>
+                content="<%= __('cc_0_content') %>" about="<%- url_for(page.path) %>">
+                <%= __('cc_0_country') %>
+            </span>
             </p>
         <% } else if (reprintPolicy === 'noreprint') { %>
+            <i class="fas fa-exclamation-circle"></i>
             <span>
                 <%= __('noreprint') %>
             </span>
         <% } else if (reprintPolicy === 'pay') { %>
-            <span>
-                <%= __('payreprint') %>
+            <i class="fas fa-exclamation-circle"></i>
+            <%= __('paycontact') %>
+            <span class="reprint-info">
+                <a href="<%- config.url %>" rel="external nofollow noreferrer"><%- page.author || config.author %></a>
             </span>
+            <%= __('payreprint') %>
         <% } %>
     </div>
 

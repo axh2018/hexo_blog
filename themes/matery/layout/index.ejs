@@ -1,33 +1,44 @@
 <% if (is_home() && page.current === 1) { %>
 <%- partial('_partial/index-cover') %>
 <% } else { %>
-<%- partial('_partial/bg-cover') %>
+    <%- partial('_partial/bg-cover') %>
 <% } %>
 
 <main class="content">
 
-    <% if (page.current === 1) { %>
+    <% if (page.current === 1
+            && (theme.dream.enable || (theme.music.enable && !theme.music.fixed))
+                    || theme.video.enable || theme.recommend.enable) { %>
     <div id="indexCard" class="index-card">
         <div class="container ">
             <div class="card">
                 <div class="card-content">
                     <% if (theme.dream.enable) { %>
-                    <%- partial('_widget/dream') %>
+                        <%- partial('_widget/dream') %>
                     <% } %>
-                    <% if (theme.music.enable && site.data && site.data.musics) { %>
-                    <%- partial('_widget/music') %>
+
+                    <% if (theme.music.enable && site.data && site.data.musics && !theme.music.fixed) { %>
+                        <%- partial('_widget/music') %>
                     <% } %>
-                    <%# 注释语法 %>
-                    <%# if (theme.video.enable) { %>
-                    <%# - partial('_widget/video') %>
-                    <%# } %>
+
+                    <% if (theme.video.enable) { %>
+                        <%- partial('_widget/video') %>
+                    <% } %>
+
+                    <% if (theme.recommend.enable) { %>
                     <div id="recommend-sections" class="recommend">
                         <%- partial('_widget/recommend') %>
                     </div>
+                    <% } %>
                 </div>
             </div>
         </div>
     </div>
+    <% } %>
+
+    <% if (page.current === 1 && theme.music.enable
+            && site.data && site.data.musics && theme.music.fixed) { %>
+        <%- partial('_widget/music') %>
     <% } %>
 
     <%
@@ -51,10 +62,10 @@
             <% page.posts.forEach(post => { %>
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="<%- url_for(post.path) %>" target="_blank">
+                    <a href="<%- url_for(post.path) %>">
                         <div class="card-image">
                             <% if (post.img) { %>
-                            <img src="<%= post.img %>" class="responsive-img" alt="<%- post.title %>">
+                            <img src="<%- theme.jsDelivr.url %><%= post.img %>" class="responsive-img" alt="<%- post.title %>">
                             <% } else { %>
                             <%
                                 var featureimg = '/medias/featureimages/0.jpg';
@@ -67,7 +78,7 @@
                                 var num = Math.abs(hashCode(post.title) % len);
                                 featureimg = featureImages[num];
                             %>
-                            <img src="<%- featureimg %>" class="responsive-img" alt="<%- post.title %>">
+                            <img src="<%- theme.jsDelivr.url %><%- featureimg %>" class="responsive-img" alt="<%- post.title %>">
                             <% } %>
                             <span class="card-title"><%- post.title %></span>
                         </div>
@@ -76,23 +87,29 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             <% if (post.summary && post.summary.length > 0) { %>
-                            <%- post.summary %>
+                                <%- post.summary %>
                             <% } else { %>
-                            <%- strip_html(post.content).substring(0, 120) %>
+                                <%- strip_html(post.content).substring(0, 120) %>
                             <% } %>
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i><%= date(post.date, config.date_format) %>
+                                <i class="far fa-clock fa-fw icon-date"></i><%= date(post.date, config.date_format) %>
                             </span>
                             <span class="publish-author">
                                 <% if (post.categories && post.categories.length > 0) { %>
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 <% post.categories.forEach(category => { %>
-                                <a href="<%- url_for(category.path) %>" class="post-category" target="_blank">
+                                <a href="<%- url_for(category.path) %>" class="post-category">
                                     <%- category.name %>
                                 </a>
                                 <% }); %>
+                                <% } else if (post.author && post.author.length > 0) { %>
+                                <i class="fas fa-user fa-fw"></i>
+                                <%- post.author %>
+                                <% } else { %>
+                                <i class="fas fa-user fa-fw"></i>
+                                <%- config.author %>
                                 <% } %>
                             </span>
                         </div>
@@ -101,7 +118,7 @@
                     <% if(post.tags && post.tags.length > 0) { %>
                     <div class="card-action article-tags">
                         <% post.tags.forEach(tag => { %>
-                        <a href="<%- url_for(tag.path) %>" target="_blank">
+                        <a href="<%- url_for(tag.path) %>">
                             <span class="chip bg-color"><%= tag.name %></span>
                         </a>
                         <% }); %>
