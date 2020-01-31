@@ -2,7 +2,7 @@
 
 1. 下载 <a href="https://git-scm.com/downloads">Git</a> <具体安装步骤这里不多讲述,鼠标右键可以看到Git Bash Here 就行>
 
-2. 下载<a href=" https://nodejs.org/en/download/ ">node.js</a><具体安装步骤这里不多讲述,cmd下npm -v有输出就行>
+2. 下载<a href=" https://nodejs.org/en/download/">node.js</a><具体安装步骤这里不多讲述,cmd下npm -v有输出就行>
 
 3. 创建一个存放你博客的文件夹，进入文件夹，右键选择 Git Bash Here，然后设置npm的镜像源为淘宝镜像源，这样能**加快下载插件速度**
 
@@ -25,7 +25,7 @@
 
    就可以本地预览了 
 
-   
+   * <a href="https://axh2018.github.io/">点击预览</a>
 
    > hexo  clean (清除缓存文件,可简写hexo cl)
 
