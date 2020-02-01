@@ -16,9 +16,9 @@ menu:
   About:
     url: /about
     icon: fas fa-user-circle
-#  Contact:
-#    url: /contact
-#    icon: fas fa-comments
+  Contact:
+    url: /contact
+    icon: fas fa-comments
   Friends:
     url: /friends
     icon: fas fa-address-book
@@ -64,7 +64,7 @@ cover:
 # index page dream text,
 # 配置首页显示"梦想"的语句.
 dream:
-  enable: false
+  enable: true
   showTitle: true
   title: 我的梦想
   text: 不是每个人都应该像我这样去建造一座水晶大教堂，但是每个人都应该拥有自己的梦想，设计自己的梦想，追求自己的梦想，实现自己的梦想。梦想是生命的灵魂，是心灵的灯塔，是引导人走向成功的信仰。有了崇高的梦想，只要矢志不渝地追求，梦想就会成为现实，奋斗就会变成壮举，生命就会创造奇迹。——罗伯·舒乐
@@ -141,7 +141,7 @@ socialLink:
 # 是否激活文章 TOC 功能，并配置TOC支持选中哪些标题类型，这是全局配置。
 # 可以在某篇文章的 Front-matter 中再加上`toc: false`，使该篇文章关闭TOC目录功能
 toc:
-  enable: true
+  enable: false
   heading: h2, h3, h4
   collapseDepth: 0 # 目录默认展开层级
   showToggleBtn: true # 是否显示切换TOC目录展开收缩的按钮
@@ -266,13 +266,13 @@ postCalendar: true
 # the Gitalk config，default disabled
 # Gitalk 评论模块的配置，默认为不激活
 gitalk:
-  enable: true
-  owner: axh2018
-  repo: gittalk
+  enable: false
+  owner:
+  repo:
   oauth:
-    clientId: 98b3d1197ecd6cf3af36
-    clientSecret: f87e82be47725b370c6bf3bf09fcd526ce8a85ef
-  admin: axh2018
+    clientId:
+    clientSecret:
+  admin:
 
 # the Gitment config，default disabled
 # Gitment 评论模块的配置，默认为不激活
@@ -443,12 +443,12 @@ reprint:
 # DaoVoice online contact
 daovoice:
   enable: false
-  app_id: 3342c650
+  app_id:
 
 # Tidio online contact
 tidio:
   enable: false
-  public_key: lmdipz9ccu4h5rvnor8q5vgk23s1reif
+  public_key:
 
 #背景canvas-nest
 canvas_nest:

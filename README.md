@@ -1,3 +1,5 @@
+
+
 ***本项目简单食用方法(Windows OS)：***
 
 1. 下载 <a href="https://git-scm.com/downloads">Git</a> <具体安装步骤这里不多讲述,鼠标右键可以看到Git Bash Here 就行>
@@ -25,7 +27,7 @@
 
    就可以本地预览了 
 
-   * <a href="https://axh2018.github.io/">点击预览</a>
+   * <a href="https://axh2018.github.io/">点击预览https://axh2018.github.io</a>
 
    > hexo  clean (清除缓存文件,可简写hexo cl)
 
@@ -36,11 +38,66 @@
    > hexo deploy (部署到GitHub,可简写hexo d)
 
 
-6. 能跑起来的话，就可以把相关信息该为自己的然后部署到GitHub上了，Github创建一个仓库，这个仓库的名字必须是 userid.github.io ,例如我的id是axh2018，那么我的仓库名就必须是axh2018.github.io 
+6. 能本地预览的话，就可以把相关信息改为自己的然后部署到GitHub上了
+   Github创建一个仓库，这个仓库的名字必须是 userid.github.io 
+   例如我的id是axh2018，那么我的仓库名就必须是axh2018.github.io 
+   
+7.  配置Git账户和邮箱
+    在你的博客文件夹下右键Git Bash Here
+    
+    ```shell script
+    git config --global user.name "axh2018" 
+    git config --global user.email "a1759895304@gmail.com"
+    ```
+    **这里的账号和邮箱换成你自己的**
+    
+8. 生成密钥(这里三次回车)
+    
+    ```shell
+    ssh-keygen -t rsa -C "a1759895304@gmail.com"
+    ```
+    
+    **邮箱同样换成自己的**
+    
+9. 密钥上传到Github
+   ````shell script
+    cat ~/.ssh/id_rsa.pub
+   ````
+    到GitHub网站上点右上角Settings,SSH and GPG Keys,新建一个key,将上面的结果复制填进去就好了
 
-   hexo主题用的是[matery]( https://github.com/blinkfox/hexo-theme-matery )
+10. 测试是否上传成功,下面的指令的输出能看到你Github账户名字就行了
+    ````shell script
+    ssh -T git@github.com
+    ````
 
-   matery主题的优点:
+11. Hexo部署到Github,修改你博客文件夹根目录下的_config.yaml文件的倒数第二行,repository的地址改成你的GitHub博客仓库地址
+````shell script
+deploy:
+  type: git
+  repository: https://github.com/axh2018/axh2018.github.io
+  branch: master
+````
+**到这基本就完成了，剩下你所需要的工作就是把配置文件(根目录下的_config.yaml和主题文件夹下的_config_yaml)的相关信息改为你自己的信息即可。**
+
+* 写文章直接在你的博客文件夹下右键Git Bash Here
+````shell script
+hexo new post "第一篇文章"
+````
+然后根目录下的source文件夹里会有一个"第一篇文章.md"文件和一个"第一篇文章"的文件夹
+你只需要编辑这个md文件就行啦,什么?什么是md文件?
+md即MarkDown文件的后缀名
+>Markdown是一种可以使用普通文本编辑器编写的标记语言
+>通过简单的标记语法,它可以使普通文本内容具有一定的格式
+>Markdown具有一系列衍生版本,用于扩展Markdown的功能(如表格、脚注、内嵌HTML等等)
+>这些功能原初的Markdown尚不具备，它们能让Markdown转换成更多的格式
+>例如LaTeX，Docbook。Markdown增强版中比较有名的有Markdown Extra、MultiMarkdown、 Maruku等
+>这些衍生版本要么基于工具，如Pandoc；要么基于网站，如GitHub和Wikipedia
+>在语法上基本兼容，但在一些语法和渲染效果上有改动。
+
+编辑MarkDown文件,安利一下<a href="https://typora.io/">typora</a>这款软件,或者<a href="https://visualstudio.microsoft.com/zh-hans/?rr=https%3A%2F%2Fcn.bing.com%2F">Visual Studio</a>这款强大的IDE
+
+   **hexo主题用的是[matery]( https://github.com/blinkfox/hexo-theme-matery )**
+   **matery主题的优点:**
 
 - 简单漂亮，文章内容美观易读
 - [Material Design](https://material.io/) 设计
@@ -62,7 +119,7 @@
 - 支持`emoji`表情，用`markdown emoji`语法书写直接生成对应的能**跳跃**的表情。
 - 支持 [DaoVoice](http://www.daovoice.io/)、[Tidio](https://www.tidio.com/) 在线聊天功能。
 
-  本项目已集成以下插件:
+  **本项目已集成以下插件:**
 
 - 添加emoji表情支持
 - 代码高亮
@@ -81,4 +138,8 @@
 - Gitalk评论模块
 - 网页图片懒加载
 
-值得注意的是，您需要把相关的个人信息改为您自己的信息，这其中包括一些插件的id，您需要自行去注册，然后修改_config.yaml文件里与之相应的id
+值得注意的是，您需要把相关的个人信息改为您自己的信息，这其中包括一些插件的id，您需要自行去注册，然后填入config_yaml文件的相应配置
+
+
+
+***如果你想从头到尾一步一步的部署你的博客的话，可以看看<a href="https://yafine-blog.cn/posts/4ab2.html">过客~励心</a>的这篇文章，写的非常详细,此项目懒人适合食用***
