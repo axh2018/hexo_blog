@@ -4,7 +4,11 @@
 
 1. 下载 <a href="https://git-scm.com/downloads">Git</a> <具体安装步骤这里不多讲述,鼠标右键可以看到Git Bash Here 就行>
 
+   或者<a href="https://pan.baidu.com/s/1rKpW1a-xJJS8XRFKiPuypQ">百度网盘链接</a> 提取码:6s0q
+
 2. 下载<a href="https://nodejs.org/en/download/">node.js</a><具体安装步骤这里不多讲述,cmd下npm -v有输出就行>
+
+   或者<a href="">百度网盘链接</a> 密码:6s0q或者<a href="https://pan.baidu.com/s/1rKpW1a-xJJS8XRFKiPuypQ">百度网盘链接</a> 提取码:s3u0
 
 3. 创建一个存放你博客的文件夹，进入文件夹，右键选择 Git Bash Here，然后设置npm的镜像源为淘宝镜像源，这样能**加快下载插件速度**
 
@@ -52,7 +56,7 @@
     **这里的账号和邮箱换成你自己的**
     
 8. 生成密钥(这里三次回车)
-    
+   
     ```shell
     ssh-keygen -t rsa -C "a1759895304@gmail.com"
     ```
