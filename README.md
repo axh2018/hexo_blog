@@ -39,8 +39,7 @@
       ````shell script
        cat ~/.ssh/id_rsa.pub
       ````
-
-       到GitHub网站上点右上角Settings,SSH and GPG Keys,新建一个key,将上面的结果复制填进去就好了
+   到GitHub网站上点右上角Settings,SSH and GPG Keys,新建一个key,将上面的结果复制填进去就好了
 
 7. 测试是否上传成功,下面的指令的输出能看到你Github账户名字就行了
 
@@ -52,6 +51,7 @@
 
    ```shell
    git clone git@github.com:axh2018/hexo_blog.git   .
+   npm install -g hexo-cli
    npm i
    ```
 
