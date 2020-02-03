@@ -16,6 +16,38 @@
    npm config set registry https://registry.npm.taobao.org
    ```
 
+4. 配置Git账户和邮箱
+      在你的博客文件夹下右键Git Bash Here
+
+      ```shell script
+      git config --global user.name "jxnu201826702013" 
+      git config --global user.email "1759895304@qq.com"
+      ```
+
+      **这里的账号和邮箱换成你自己的**
+
+5. 生成密钥(这里三次回车)
+
+      ```shell
+      ssh-keygen -t rsa -C "1759895304@qq.com"
+      ```
+
+      **邮箱同样换成自己的**
+
+6. 密钥上传到Github
+
+      ````shell script
+       cat ~/.ssh/id_rsa.pub
+      ````
+
+       到GitHub网站上点右上角Settings,SSH and GPG Keys,新建一个key,将上面的结果复制填进去就好了
+
+7. 测试是否上传成功,下面的指令的输出能看到你Github账户名字就行了
+
+      ````shell script
+      ssh -T git@github.com
+      ```` 
+   
 4. 在你的博客文件夹下,右键选择 Git Bash Here，然后
 
    ```shell
@@ -46,35 +78,8 @@
    Github创建一个仓库，这个仓库的名字必须是 userid.github.io 
    例如我的id是axh2018，那么我的仓库名就必须是axh2018.github.io 
    
-7.  配置Git账户和邮箱
-    在你的博客文件夹下右键Git Bash Here
+7.  Hexo部署到Github,修改你博客文件夹根目录下的_config.yaml文件的倒数第二行,repository的地址改成你的GitHub博客仓库地址
     
-    ```shell script
-    git config --global user.name "axh2018" 
-    git config --global user.email "a1759895304@gmail.com"
-    ```
-    **这里的账号和邮箱换成你自己的**
-    
-8. 生成密钥(这里三次回车)
-   
-    ```shell
-    ssh-keygen -t rsa -C "a1759895304@gmail.com"
-    ```
-    
-    **邮箱同样换成自己的**
-    
-9. 密钥上传到Github
-   ````shell script
-    cat ~/.ssh/id_rsa.pub
-   ````
-    到GitHub网站上点右上角Settings,SSH and GPG Keys,新建一个key,将上面的结果复制填进去就好了
-
-10. 测试是否上传成功,下面的指令的输出能看到你Github账户名字就行了
-    ````shell script
-    ssh -T git@github.com
-    ````
-
-11. Hexo部署到Github,修改你博客文件夹根目录下的_config.yaml文件的倒数第二行,repository的地址改成你的GitHub博客仓库地址
 ````shell script
 deploy:
   type: git
