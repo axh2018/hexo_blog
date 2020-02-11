@@ -45,7 +45,7 @@
 
       ````shell script
       ssh -T git@github.com
-      ```` 
+      ````
    
 4. 在你的博客文件夹下,右键选择 Git Bash Here，然后
 
@@ -63,7 +63,7 @@
 
    就可以本地预览了 
 
-   <a href="https://axh2018.cn/">点击预览https://axh2018.cn/</a>
+   <a href="https://axh2018.cn/">点击预览https://axh2018.gitee.io/</a>
 
    > hexo  clean (清除缓存文件,可简写hexo cl)
 
@@ -92,9 +92,10 @@ deploy:
 ````shell script
 hexo new post "第一篇文章"
 ````
-然后根目录下的source文件夹里会有一个"第一篇文章.md"文件和一个"第一篇文章"的文件夹
+然后根目录下的source文件夹里会有一个"第一篇文章.md"文件
 你只需要编辑这个md文件就行啦,什么?什么是md文件?
 md即MarkDown文件的后缀名
+
 >Markdown是一种可以使用普通文本编辑器编写的标记语言
 >通过简单的标记语法,它可以使普通文本内容具有一定的格式
 >Markdown具有一系列衍生版本,用于扩展Markdown的功能(如表格、脚注、内嵌HTML等等)
