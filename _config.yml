@@ -6,14 +6,14 @@
 title: Cherry
 subtitle: Let`s Go
 description: ''
-keywords: [Blog , Linux , Github , 编程]
+keywords: 
 author: 布莱恩特科比酱
 language: zh-CN
 timezone: ''
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://axh2018.github.io
+url: 
 root: /
 # permalink: :year/:month/:day/:title/
 permalink: posts/:abbrlink.html
@@ -110,7 +110,7 @@ search:
   field: post
 # 中文转拼音
 permalink_pinyin:
-  enable: true
+  enable: false
   separator: '-'
 # 订阅
 feed:
@@ -149,5 +149,5 @@ theme: matery
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/axh2018/axh2018.github.io.git
+  repo: 
   branch: master

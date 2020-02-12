@@ -63,7 +63,7 @@
 
    就可以本地预览了 
 
-   <a href="https://axh2018.cn/">点击预览https://axh2018.gitee.io/</a>
+   <a href="https://axh2018.gitee.io/">点击预览https://axh2018.gitee.io/</a>
 
    > hexo  clean (清除缓存文件,可简写hexo cl)
 
