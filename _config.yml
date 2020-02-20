@@ -6,14 +6,14 @@
 title: Cherry
 subtitle: Let`s Go
 description: ''
-keywords: 
+keywords:
 author: 布莱恩特科比酱
 language: zh-CN
 timezone: ''
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: 
+url:
 root: /
 # permalink: :year/:month/:day/:title/
 permalink: posts/:abbrlink.html
@@ -122,7 +122,7 @@ feed:
   content_limit: 140
   content_limit_delim: ' '
   order_by: -date
-# 链接
+# 外链跳转
 hexo_external_link:
   enable: true
   enable_base64_encode: true
@@ -149,5 +149,5 @@ theme: matery
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: 
+  repo: git@github.com:jxnu201826702013/jxnu201826702013.github.io.git
   branch: master
