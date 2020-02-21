@@ -51,7 +51,7 @@
 
    ```shell
    $ git clone git@github.com:axh2018/hexo_blog.git  .  #克隆项目
-   $ npm i											 #安装相关依赖插件和框架
+   $ npm i							#安装相关依赖插件和框架
    ```
    
 5. 测试是否正常预览
