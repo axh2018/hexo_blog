@@ -50,11 +50,10 @@
 4. 在你的博客文件夹下,右键选择 Git Bash Here，然后
 
    ```shell
-   $ git clone git@github.com:axh2018/hexo_blog.git   .		#克隆项目
-   $ npm install -g hexo-cli								  #安装hexo框架
-   $ npm i													#安装相关依赖插件
+   $ git clone git@github.com:axh2018/hexo_blog.git  .  #克隆项目
+   $ npm i											 #安装相关依赖插件和框架
    ```
-
+   
 5. 测试是否正常预览
 
    ```shell
