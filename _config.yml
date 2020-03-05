@@ -149,5 +149,5 @@ theme: matery
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:jxnu201826702013/jxnu201826702013.github.io.git
+  repo: git@github.com:axh2018/axh2018.github.io.git
   branch: master
