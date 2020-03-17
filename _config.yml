@@ -4,7 +4,7 @@
 
 # Site
 title: Cherry
-subtitle: Let`s Go
+subtitle:  #默认为空
 description: ''
 keywords:
 author: 布莱恩特科比酱
@@ -13,7 +13,7 @@ timezone: ''
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url:
+url: http://yoursite.com/
 root: /
 # permalink: :year/:month/:day/:title/
 permalink: posts/:abbrlink.html

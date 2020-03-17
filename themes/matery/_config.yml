@@ -84,7 +84,7 @@ music:
     show: 听听音乐
   server: netease   #require	music platform: netease, tencent, kugou, xiami, baidu
   type: playlist	    #require song, playlist, album, search, artist
-  id: 2131343984     #require	song id / playlist id / album id / search keyword
+  id: 503838841     #require	song id / playlist id / album id / search keyword
   fixed: false      # 开启吸底模式
   autoplay: false   # 是否自动播放
   theme: '#42b983'
@@ -209,7 +209,7 @@ clicklove:
 profile:
   avatar: /medias/logo.png
   career: Software Engineer
-  introduction: Courage is the ladder on which all the other virtues mount.
+  introduction: 从来没有真正的绝境，只有心灵的迷途
 
 # config my projects informations in about page.
 # If you don't want to display this `My Projects` content, you can deactivate or delete this configuration.
@@ -500,7 +500,7 @@ subtitle:
   startDelay: 300 # 开始延迟
   typeSpeed: 100 # 打字速度
   backSpeed: 50 # 删除速度
-  sub1: Seize today, don't believe tomorrow.
+  sub1: 从来没有真正的绝境，只有心灵的迷途
 
 # 手机二级菜单.
 navMenu:
