@@ -1,60 +1,66 @@
 
 
-***食用方法(Windows)：***
+### 简单开始：
 
-1. 下载 <a href="https://git-scm.com/downloads">Git</a> <具体安装步骤这里不多讲述,鼠标右键可以看到Git Bash Here 就行>
-
-   
-
-2. 下载<a href="https://nodejs.org/en/download/">node.js</a><具体安装步骤这里不多讲述,cmd下npm -v有输出就行>
+1. 下载 <a href="https://git-scm.com/downloads">Git</a> <鼠标右键可以看到`Git Bash Here` 即可>
 
    
 
-3. 创建一个存放你博客的文件夹，进入文件夹，右键选择 Git Bash Here，然后设置npm的镜像源为淘宝镜像源，这样能**加快下载插件速度**
+2. 下载<a href="https://nodejs.org/en/download/">node.js</a><`cmd`下`npm -v`有输出即可>
+
+   
+
+3. 配置镜像源
+
+   创建一个存放你博客的文件夹，进入文件夹，右键选择 `Git Bash Here`，然后设置`npm`的镜像源为淘宝镜像源，这样能**加快下载插件速度**
 
    ```shell
    $ npm config set registry https://registry.npm.taobao.org
    ```
 
-4. 配置Git账户和邮箱
-      在你的博客文件夹下右键Git Bash Here
-
-      ```shell script
-      $ git config --global user.name "GithubID" 
-      $ git config --global user.email "email-address"
-      ```
+4. 配置`git`账户和邮箱
+      在你的博客文件夹下右键`Git Bash Here`
 
       **这里的账号和邮箱换成你自己的**
+      
+      ```shell script
+      $ git config --global user.name "GithubID" 
+$ git config --global user.email "email-address"
+      ```
 
 5. 生成密钥(这里三次回车)
+
+      **邮箱同样换成自己的**
 
       ```shell
       $ ssh-keygen -t rsa -C "email-address"
       ```
 
-      **邮箱同样换成自己的**
+6. 密钥上传到`Github`
 
-6. 密钥上传到Github
+   ````shell script
+    $ cat ~/.ssh/id_rsa.pub
+   ````
+   到`GitHub`网站上点右上角`Settings,SSH and GPG Keys`,新建一个`key`,将上面的结果复制填进去即可
 
-      ````shell script
-       $ cat ~/.ssh/id_rsa.pub
-      ````
-   到GitHub网站上点右上角Settings,SSH and GPG Keys,新建一个key,将上面的结果复制填进去就好了
+7. 测试是否上传成功
 
-7. 测试是否上传成功,下面的指令的输出能看到你Github账户名字就行了
+      下面的指令的输出能看到你Github账户名字即可
 
       ````shell script
       $ ssh -T git@github.com
       ````
-   
-4. 在你的博客文件夹下,右键选择 Git Bash Here，然后
+
+8. 克隆项目
+
+   在你的博客文件夹下,右键选择 `Git Bash Here`，然后
 
    ```shell
    $ git clone git@github.com:axh2018/hexo_blog.git  .  #克隆项目
-   $ npm i							#安装相关依赖插件和框架
+   $ npm i							 #安装相关依赖插件和框架
    ```
-   
-5. 测试是否正常预览
+
+9. 测试是否正常预览
 
    ```shell
    $ hexo clean && hexo g && hexo s
@@ -62,7 +68,7 @@
 
    打开浏览器输入127.0.0.1:4000即可本地预览效果
 
-   <a href="https://axh2018.gitee.io/">点击预览https://axh2018.gitee.io/</a>
+   <a href="https://axh2018.github.io/">点击预览https://axh2018.github.io/</a>
 
    > hexo  clean (清除缓存文件,可简写hexo cl)
 
@@ -73,27 +79,26 @@
    > hexo deploy (部署到GitHub,可简写hexo d)
 
 
-6. 能本地预览，就可以把相关信息改为自己的然后部署到GitHub上
-   Github创建一个仓库，这个仓库的名字必须是 userid.github.io 
-   例如我的id是axh2018，那么我的仓库名就必须是axh2018.github.io 
+6. 能本地预览，就可以把相关信息改为自己的然后部署到`GitHub`上
+   `Github`创建一个仓库，这个仓库的名字必须是 `userid.github.io `
+   例如我的`id`是`axh2018`，那么我的仓库名就必须是`axh2018.github.io `
    
-7.  Hexo部署到Github,修改你博客文件夹根目录下的_config.yaml文件的倒数第二行,repository的地址改成你的GitHub博客仓库地址
-    
+7. `Hexo`部署到`Github`,修改你博客文件夹根目录下的`_config.yml`文件的倒数第二行,repository的地址改成你的`GitHub`博客仓库地址
 ````shell script
 deploy:
   type: git
   repository: https://github.com/axh2018/axh2018.github.io
   branch: master
 ````
-**到这基本就完成了，剩下你所需要的工作就是把配置文件(根目录下的_config.yaml和主题文件夹下的_config_yaml)的相关信息改为你自己的信息即可。**
+**到这基本就完成了，剩下你所需要的工作就是把配置文件(根目录下的_config.yml和主题文件夹下的_config_yml)的相关信息改为你自己的信息即可。**
 
-* 写文章直接在你的博客文件夹下右键Git Bash Here
+* 写文章直接在你的博客文件夹下右键`Git Bash Here`
 ````shell script
 $ hexo new post "第一篇文章"
 ````
-然后根目录下的source文件夹里会有一个"第一篇文章.md"文件
-你只需要编辑这个md文件就行啦,什么?什么是md文件?
-md即MarkDown文件的后缀名
+然后根目录下的`source`文件夹里会有一个"第一篇文章.md"文件
+你只需要编辑这个`md`文件就行啦,什么?什么是`md`文件?
+`md`即`MarkDown`文件的后缀名
 
 >Markdown是一种可以使用普通文本编辑器编写的标记语言
 >通过简单的标记语法,它可以使普通文本内容具有一定的格式
@@ -103,7 +108,7 @@ md即MarkDown文件的后缀名
 >这些衍生版本要么基于工具，如Pandoc；要么基于网站，如GitHub和Wikipedia
 >在语法上基本兼容，但在一些语法和渲染效果上有改动。
 
-编辑MarkDown文件,安利一下<a href="https://typora.io/">typora</a>这款软件,或者<a href="https://visualstudio.microsoft.com/zh-hans/?rr=https%3A%2F%2Fcn.bing.com%2F">Visual Studio</a>这款强大的IDE
+编辑`MarkDown`文件,安利一下<a href="https://typora.io/">typora</a>这款软件,或者<a href="https://visualstudio.microsoft.com/zh-hans/?rr=https%3A%2F%2Fcn.bing.com%2F">Visual Studio</a>这款强大的`IDE`
 
    **hexo主题用的是[matery]( https://github.com/blinkfox/hexo-theme-matery )**
    **matery主题的优点:**
